@@ -1,0 +1,32 @@
+{
+  "name": "astrology_backend",
+  "version": "1.0.0",
+  "description": "this is backend for a project on astrology",
+  "keywords": [
+    "backend",
+    "astrology"
+  ],
+  "license": "ISC",
+  "author": "kshitij",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.17.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "imagekit": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.6.3",
+    "multer": "^2.1.1",
+    "nodemon": "^3.1.14",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3"
+  }
+}
