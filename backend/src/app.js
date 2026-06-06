@@ -56,7 +56,7 @@ app.use(express.text({ type: "text/*", limit: "10mb" })); // For plain text form
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
-app.use(trackVisitor);
+// app.use(trackVisitor);
 app.use(compression());
 // app.use(limiter);
 
