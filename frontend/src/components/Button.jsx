@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai"; 
 
 const Button = ({
   Label = "",
@@ -6,6 +7,7 @@ const Button = ({
   className = "",
   type,
   variant = "high",
+  isLoading = false,
 }) => {
   const High = "bg-[#FBBF24]  text-white hover:bg-[#F59E0B]";
   const Medium = "bg-[#0F5C4D] text-white hover:bg-[#0A4033]";
@@ -15,10 +17,19 @@ const Button = ({
       type={type}
       onClick={onClick}
       className={`${className} ${
+     
         variant === "high" ? High : variant === "medium" ? Medium : Low
-      }  duration-200 ease-in-out text-wrap w-fit px-4 py-2 rounded-2xl text-sm `}
+      }  duration-200 ease-in-out text-wrap w-fit px-4 py-2 rounded-2xl text-sm 
+        disabled:opacity-70
+        disabled:cursor-not-allowed `}
     >
-      {Label}
+      {isLoading ? (
+        <>
+          <AiOutlineLoading3Quarters className="animate-spin text-lg" />
+        </>
+      ) : (
+       Label
+      )}
     </button>
   );
 };

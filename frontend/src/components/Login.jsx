@@ -1,8 +1,12 @@
 import React from "react";
 import InputBox from "./Input";
 import Button from "./Button";
+import { useState } from "react";
 
 const Login = () => {
+
+
+
   return (
     <div className="min-h-screen bg-[#FFFDF9] flex items-center justify-center p-6">
       <div className="w-full max-w-md">
@@ -21,19 +25,19 @@ const Login = () => {
         <div className="bg-white rounded-3xl shadow-lg border border-[#EAE6DD] px-8 ">
           <form className="">
             {/* Email */}
-            <div>
+      
               <InputBox LabelName="Email" Placeholder="Email" />
-            </div>
+        
 
             {/* Password */}
-            <div>
+           
               <InputBox
                 LabelName="Password"
                 Placeholder="Password"
                 Type="password"
                 PasswordIndication={true}
               />
-            </div>
+            
 
             {/* Remember Me */}
             <div className="flex items-center justify-between text-sm">
@@ -48,7 +52,11 @@ const Login = () => {
             </div>
 
             {/* Button */}
-            <Button Label="Login" className="w-full py-3 mt-4" />
+            <Button
+              Label="Login"
+       
+              className="w-full py-3 mt-4"
+            />
           </form>
 
           {/* Divider */}

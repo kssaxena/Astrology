@@ -24,11 +24,9 @@ const AstrologyCard = ({
         px-4 
         py-6
         text-center
-        shadow-lg
+        shadow-md   
         hover:shadow-purple-500/40
-        hover:-translate-y-2
-        transition-all
-        duration-300
+       
         flex flex-col gap-2
       "
     >
