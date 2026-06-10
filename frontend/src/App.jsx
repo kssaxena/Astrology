@@ -1,25 +1,30 @@
 import React from 'react'
-import Button from './components/Button'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Input from './components/Input'
-import Login from './components/Login'
-import SignUp from './components/Signup'
-import AstrologyCard from './components/ui/AstrologyProfileCard'
-import FacilityCard from './components/ui/Facility'
+import { useState, useEffect} from 'react'
+import Loader from './components/Loader';
+import Register from './components/Register';
+import TodayHoroscope from './components/ui/TodayHoroscope';
 
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  
+
   return (
     <div>
-      
-      <Header />
-     <AstrologyCard />
-     <FacilityCard />
-      <Footer />
-   
+      {loading && <Loader />}
+
+      {!loading && <Register />}
+      <TodayHoroscope/>
     </div>
-  )
+  );
 }
 
 export default App
