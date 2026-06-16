@@ -1,38 +1,28 @@
 import axios from "axios";
 
-export const sendSMS = async ({
-  mobile,
-  message,
-  templateId,
-  campaignName = "Astrologer",
-}) => {
+export const sendSMS = async ({ phone, message, templateId }) => {
   try {
-    const payload = {
-      username: process.env.SMS_USERNAME,
-      password: process.env.SMS_API_KEY,
-      senderid: process.env.SMS_SENDER_ID,
-      campaignname: campaignName,
-      entityid: process.env.SMS_ENTITY_ID,
-      smslist: [
-        {
-          text: message,
-          mobiles: mobile,
-          messagetype: "PM",
-          custref: `PARI-${Date.now()}`,
-          templateid: templateId,
-        },
-      ],
-    };
-
-    const response = await axios.post(process.env.SMS_BASE_URL, payload, {
-      headers: {
-        "Content-Type": "application/json",
+    const response = await axios.get(process.env.SMS_BASE_URL, {
+      params: {
+        user: process.env.SMS_USER,
+        authkey: process.env.SMS_AUTH_KEY,
+        sender: process.env.SMS_SENDER_ID,
+        mobile: phone,
+        text: message,
+        templateid: templateId,
+        rpt: 1,
       },
     });
-
-    return response.data;
+    return {
+      success: true,
+      data: response.data,
+    };
   } catch (error) {
-    console.error("SMS Error:", error.response?.data || error.message);
-    throw error;
+    console.error("SMS Error:", error?.response?.data || error.message);
+
+    return {
+      success: false,
+      error: error?.response?.data || error.message,
+    };
   }
 };
