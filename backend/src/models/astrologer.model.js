@@ -7,7 +7,7 @@ const astrologerSchema = new mongoose.Schema(
     // below details are the initial details for registering a astrologer
     name: { type: String, trim: true },
     contactNumber: { type: String, trim: true, required: true, unique: true },
-    email: { type: String, trim: true, unique: true },
+    email: { type: String, trim: true },
     password: { type: String, select: false },
     // below details are to be updated when astrologer will update his profile
     languages: [String],
