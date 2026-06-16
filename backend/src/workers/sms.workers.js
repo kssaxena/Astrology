@@ -27,7 +27,7 @@ const sendRegisterConfirmationSMS = async (phone) => {
   return await sendSMS({
     phone,
     message,
-    templateId: SMS_TEMPLATES.OTP_REGISTER_CONFIRMATION,
+    templateId: SMS_TEMPLATES.REGISTER_CONFIRMATION,
   });
 };
 

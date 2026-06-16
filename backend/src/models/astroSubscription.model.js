@@ -9,7 +9,7 @@ const astroSubscriptionSchema = new mongoose.Schema(
     },
     planName: {
       type: String,
-      enum: ["FREE", SILVER, "GOLD", "PLATINUM"],
+      enum: ["FREE", "SILVER", "GOLD", "PLATINUM"],
       required: true,
     },
     priority: { type: Number, default: 4 },
