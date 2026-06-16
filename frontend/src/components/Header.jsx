@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import Logo from "../assets/Logo.png"
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -21,29 +22,32 @@ const Header = () => {
       name: "Panchanga",
       submenu: ["Astrology", "Spirituality", "Zodiac Signs"],
     },
-    // { name: "Contact" },
+    { name: "Contact" },
   ];
 
   return (
     <header className="bg-[#FFFDF9] border-b rounded-lg border-[#EAE6DD] shadow-lg top-0 z-50 backdrop-blur-md">
-      <div className="container mx-auto px-4 lg:px-8 sm:px4 sm:text-lg">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 lg:px-8 sm:px-4 sm:text-lg">
+        <div className="flex items-center justify-between h-18">
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer">
-            <div className="w-12 h-12 rounded-full bg-[#F4EEE2] flex items-center justify-center text-2xl">
+          <div className="flex items-center gap-1 cursor-pointer ">
+            {/* <div className="w-12 h-12 rounded-full bg-[#F4EEE2] flex items-center justify-center text-2xl">
               🌙
-            </div>
+            </div> */}
 
-            <div className="hidden lg:block">
+            <div className="md:w-30 md:h-14 h-18 w-18">
+              <img src={Logo} alt="" className="object-contain h-full w-full" />
+            </div>
+            {/* <div className="hidden lg:block">
               <h1 className="text-2xl  font-bold text-[#1E2A26]">Zodiac App</h1>
 
               <p className="text-xs text-[#8B948F]">Astrology & Guidance</p>
-            </div>
+            </div> */}
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-8 ">
               {navItems.map((item) => (
                 <li
                   key={item.name}
@@ -51,7 +55,7 @@ const Header = () => {
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button className="flex items-center gap-1  hover:text-[#1E2A26] transition duration-300  text-md ">
+                  <button className="flex items-center gap-1  hover:text-[#1E2A26] transition duration-300  text-lg ">
                     {item.name}
 
                     {/* {item.submenu && <span className="text-xs">▼</span>} */}

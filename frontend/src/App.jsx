@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import Loader from './components/Loader';
-import Register from './components/Register';
-import TodayHoroscope from './components/ui/TodayHoroscope';
+import Home from "./pages/Home"
+import Footer from './components/Footer'
+import Header from './components/Header';
+
 
 
 function App() {
@@ -18,11 +20,10 @@ function App() {
   
 
   return (
-    <div>
-      {loading && <Loader />}
-
-      {!loading && <Register />}
-      <TodayHoroscope/>
+    <div className="manrope-p1 overflow-hidden">
+      <Header />
+      <Home />
+      <Footer />
     </div>
   );
 }
