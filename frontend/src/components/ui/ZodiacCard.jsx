@@ -108,7 +108,7 @@ const ZodiacCard = () => {
             </div>
           </div>
           <div className="">
-            <h1 className=" font-semi-bold text-xl cormorant-garamond-h1 tracking-wide">
+            <h1 className=" font-semi-bold text-sm font-bold tracking-wide">
               {item.title}
             </h1>
             <p className="text-gray-600  text-[8px] montserrat-p ">
