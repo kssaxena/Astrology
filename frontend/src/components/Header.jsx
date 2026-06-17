@@ -31,7 +31,7 @@ const Header = () => {
       <div className=" mx-auto px-4 lg:px-8 sm:px-4 sm:text-lg w-full">
         <div className="flex items-center justify-between h-18 w-full">
           {/* Logo */}
-          <div className="lg:flex items-center gap-1 cursor-pointer ">
+          <div className="lg:flex items-center gap-1 cursor-pointer">
             <div className="md:w-30 md:h-14 h-18 w-18">
               <img src={Logo} alt="" className="object-contain h-full w-full" />
             </div>
@@ -112,7 +112,7 @@ const Header = () => {
             />
           </div>
           {/* Mobile Button */}
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center w-fit">
             <button
               className="block xl:hidden mx-5"
               onClick={() => setMobileMenu(!mobileMenu)}

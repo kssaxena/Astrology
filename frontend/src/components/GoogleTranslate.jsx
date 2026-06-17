@@ -56,10 +56,7 @@ const GoogleTranslate = () => {
 
   return (
     <div className="flex justify-center items-center w-fit relative">
-      {/* Hidden Google Translate */}
-      <div id="google_translate_element" />
-
-      <div className="">
+      <div className="w-fit">
         {/* Trigger Button */}
         <button
           onClick={() => setOpen(!open)}
@@ -69,9 +66,10 @@ const GoogleTranslate = () => {
           {/* <Languages size={18} /> */}
           <LuLanguages />
         </button>
-
-        {/* Dropdown */}
       </div>
+      {/* Hidden Google Translate */}
+      <div className="w-fit hidden" id="google_translate_element" />
+      {/* Dropdown */}
       {open && (
         <div className="fixed left-0 top-0 w-full h-screen border border-[#E7DCC8] shadow-xl overflow-hidden flex justify-center items-center z-50">
           <div
