@@ -38,3 +38,21 @@
   font-style: normal;
 }
 
+
+.goog-logo-link,
+.goog-te-gadget span,
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
