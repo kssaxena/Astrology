@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import Logo from "../assets/Logo.png"
+import Logo from "../assets/Logo.png";
+import GoogleTranslate from "./GoogleTranslate";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -26,15 +27,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#FFFDF9] border-b rounded-lg border-[#EAE6DD] shadow-lg top-0 z-50 backdrop-blur-md">
-      <div className="container mx-auto px-4 lg:px-8 sm:px-4 sm:text-lg">
-        <div className="flex items-center justify-between h-18">
+    <header className="bg-[#FFFDF9] border-b rounded-lg border-[#EAE6DD] shadow-lg top-0 z-40 backdrop-blur-md fixed w-full h-18.75 flex justify-center items-center">
+      <div className=" mx-auto px-4 lg:px-8 sm:px-4 sm:text-lg w-full">
+        <div className="flex items-center justify-between h-18 w-full">
           {/* Logo */}
-          <div className="flex items-center gap-1 cursor-pointer ">
-            {/* <div className="w-12 h-12 rounded-full bg-[#F4EEE2] flex items-center justify-center text-2xl">
-              🌙
-            </div> */}
-
+          <div className="lg:flex items-center gap-1 cursor-pointer ">
             <div className="md:w-30 md:h-14 h-18 w-18">
               <img src={Logo} alt="" className="object-contain h-full w-full" />
             </div>
@@ -46,7 +43,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:block">
+          <nav className="hidden xl:block">
             <ul className="flex items-center gap-8 ">
               {navItems.map((item) => (
                 <li
@@ -106,18 +103,24 @@ const Header = () => {
             </ul>
           </nav>
 
-          <div className=" flex justify-center items-center gap-2">
-            <Button Label="Login" />
-            <Button Label="Sign Up" variant="medium" />
+          <div className="flex items-center justify-center gap-4">
+            <Button Label="Login" className="hidden md:block" />
+            <Button
+              Label="Sign Up"
+              variant="medium"
+              className="hidden md:block"
+            />
           </div>
-
           {/* Mobile Button */}
-          <button
-            className="lg:hidden  text-primary"
-            onClick={() => setMobileMenu(!mobileMenu)}
-          >
-            {mobileMenu ? "✕" : "☰"}
-          </button>
+          <div className="flex justify-center items-center">
+            <button
+              className="block xl:hidden mx-5"
+              onClick={() => setMobileMenu(!mobileMenu)}
+            >
+              {mobileMenu ? "✕" : "☰"}
+            </button>
+            <GoogleTranslate />
+          </div>
         </div>
 
         {/* Mobile Navigation */}
