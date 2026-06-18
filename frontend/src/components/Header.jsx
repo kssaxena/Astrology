@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import Button from "./Button";
 import Logo from "../assets/Logo.png";
 import GoogleTranslate from "./GoogleTranslate";
+import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({switchForm}) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const navigate = useNavigate();
 
   const navItems = [
-    { name: "Home" },
+    { name: "Home",
+      path: "/"
+     },
     {
       name: "Horoscope",
       submenu: ["Daily", "Weekly", "Monthly", "Yearly"],
@@ -33,17 +37,19 @@ const Header = () => {
           {/* Logo */}
           <div className="lg:flex items-center gap-1 cursor-pointer">
             <div className="md:w-30 md:h-14 h-18 w-18">
-              <img src={Logo} alt="" className="object-contain h-full w-full" />
+              <a href="/">
+                {" "}
+                <img
+                  src={Logo}
+                  alt=""
+                  className="object-contain h-full w-full"
+                />
+              </a>
             </div>
-            {/* <div className="hidden lg:block">
-              <h1 className="text-2xl  font-bold text-[#1E2A26]">Zodiac App</h1>
-
-              <p className="text-xs text-[#8B948F]">Astrology & Guidance</p>
-            </div> */}
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:block">
+          <nav className="hidden xl:block cursor-pointer">
             <ul className="flex items-center gap-8 ">
               {navItems.map((item) => (
                 <li
@@ -52,20 +58,22 @@ const Header = () => {
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button className="flex items-center gap-1  hover:text-[#1E2A26] transition duration-300  text-lg ">
-                    {item.name}
+                  <a href={item.path}>
+                    <button className="cursor-pointer flex items-center gap-1  hover:text-[#1E2A26] transition duration-300  text-lg ">
+                      {item.name}
 
-                    {/* {item.submenu && <span className="text-xs">▼</span>} */}
-                  </button>
+                      {/* {item.submenu && <span className="text-xs">▼</span>} */}
+                    </button>
+                  </a>
 
                   {/* Dropdown */}
                   {item.submenu && activeDropdown === item.name && (
                     <div
                       className="
                       text-sm
-                        absolute
-                        top-full
-                        left-0
+                      top-full
+                      left-0
+                      absolute
                         mt-2
                         w-56
                         bg-[#FFFDF9]
@@ -82,7 +90,7 @@ const Header = () => {
                       {item.submenu.map((subItem) => (
                         <a
                           key={subItem}
-                          href="#"
+                          href={item.path}
                           className="
                               block
                               px-5
@@ -91,6 +99,7 @@ const Header = () => {
                               hover:bg-[#F8F6F0]
                               hover:text-[#1E2A26]
                               transition
+                              cursor-pointer
                             "
                         >
                           {subItem}
@@ -104,11 +113,10 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center justify-center gap-4">
-            <Button Label="Login" className="hidden md:block" />
             <Button
-              Label="Sign Up"
-              variant="medium"
+              Label="Login/Register"
               className="hidden md:block"
+              onClick={() => navigate("authentication/user")}
             />
           </div>
           {/* Mobile Button */}
@@ -133,7 +141,7 @@ const Header = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <a
-                  href="#"
+                  href={item.path}
                   className="block text-[#5C6A66] hover:text-[#1E2A26]"
                 >
                   {item.name}
@@ -143,7 +151,7 @@ const Header = () => {
                   <ul className="ml-4 mt-2 space-y-2">
                     {item.submenu.map((subItem) => (
                       <li key={subItem}>
-                        <a href="#" className="text-sm text-[#8B948F]">
+                        <a href={item.path} className="text-sm text-[#8B948F]">
                           {subItem}
                         </a>
                       </li>

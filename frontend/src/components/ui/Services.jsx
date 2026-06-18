@@ -4,9 +4,9 @@ const ServiceCard = () => {
   return (
     <div className="w-full ">
       <h1 className="text-2xl font-medium uppercase text-center tracking-widest cormorant-garamond-h1 py-8 ">
-       Available Services
+        Available Services
       </h1>
-      <div className="grid xl:grid-cols-4 gap-2 grid-cols-1 md:grid-cols-3  p-2 rounded-2xl  w-full ">
+      <div className="grid xl:grid-cols-4 gap-2 grid-cols-1 md:grid-cols-2  p-2 rounded-2xl  w-full ">
         {ServiceData.map((item, index) => (
           <div
             key={item.title}

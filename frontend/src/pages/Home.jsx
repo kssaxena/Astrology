@@ -4,7 +4,8 @@ import { CiStar } from "react-icons/ci";
 import Button from "../components/Button";
 import ZodiacCard from "../components/ui/ZodiacCard";
 import ServiceCard from "../components/ui/Services";
-import TodayHoroscope from "../components/ui/TodayHoroscope";
+import AstrologyCard from "../components/ui/AstrologyProfileCard";
+import { AstroData } from "../components/constants/constants";
 
 function Home() {
   return (
@@ -12,18 +13,20 @@ function Home() {
       {/* Hero section */}
       <div className="flex justify-end items-center h-fit lg:h-[70vh] w-full">
         {/* Hero content */}
-        <div className="w-full flex flex-col gap-2  md:py-10 md:px-10 p-6 md:absolute">
+        <div className="w-fit flex flex-col gap-2  md:py-10 md:px-10 p-6 md:absolute z-0 left-0 ">
           <div className="flex justify-start items-center gap-1 lg:px-20">
             <CiStar className="text-lg" />
-            <p className="text-xs text-gray-800">GUIDED BY THE STARS</p>
+            <p className="text-xs text-gray-800 select-none">
+              GUIDED BY THE STARS
+            </p>
           </div>
           <div className="flex flex-col gap-1 lg:px-20">
-            <span className="lg:text-5xl text-2xl font-semibold cormorant-garamond-h1">
+            <span className="lg:text-5xl text-2xl font-semibold cormorant-garamond-h1 select-none">
               Find Clarity.
             </span>
-            <h1 className="lg:text-8xl text-6xl font-semibold cormorant-garamond-h1 flex flex-col w-fit">
+            <h1 className="lg:text-8xl text-6xl font-semibold cormorant-garamond-h1 flex flex-col w-fit select-none">
               Embrace{" "}
-              <span className="text-[#F2C85B] drop-shadow-2xl cormorant-garamond-h1 tracking-wide">
+              <span className="text-[#F2C85B] drop-shadow-2xl cormorant-garamond-h1 tracking-wide select-none">
                 Your Destiny.
               </span>
             </h1>
@@ -35,7 +38,7 @@ function Home() {
         </div>
 
         {/* Hero Img */}
-        <div className="hidden md:block md:w-1/2 p-10">
+        <div className="hidden md:block md:w-1/2 p-10 select-none">
           <img src={HeroImg2} alt="" className="object-cover h-full w-full" />
         </div>
       </div>
@@ -51,6 +54,9 @@ function Home() {
       {/* Services  */}
       <div className="w-full">
         <ServiceCard />
+      </div>
+      <div>
+        <AstrologyCard data={AstroData} />
       </div>
     </div>
   );

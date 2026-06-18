@@ -4,9 +4,9 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
-import Logo from "../assets/Logo.png"
+import Logo from "../assets/Logo.png";
 
-export const RegisterAstrologer = ({ UpdateProfile = false, switchForm }) => {
+export const RegisterUser = ({ UpdateProfile = false, switchForm }) => {
   const formRef = useRef();
   const [otp, setOtp] = useState(false);
   const [profileImage, setProfileImage] = useState();
@@ -140,8 +140,11 @@ export const RegisterAstrologer = ({ UpdateProfile = false, switchForm }) => {
                   <FaArrowLeft />
                   Back
                 </button>
+
                 <div className="flex justify-end items-end gap-2">
-                  <p className="  text-[#5C6A66]">Already Have an account? </p>
+                  <p className="  text-[#5C6A66]">
+                    Already Have an account?{" "}
+                  </p>
                   <button
                     onClick={switchForm}
                     className="capitalize hover:text-blue-600 hover:underline cursor-pointer "
@@ -186,12 +189,6 @@ export const RegisterAstrologer = ({ UpdateProfile = false, switchForm }) => {
                       Type="text"
                     />
                     <InputBox
-                      Name="email"
-                      Placeholder="Enter your email"
-                      LabelName="Email"
-                      Type="email"
-                    />
-                    <InputBox
                       Name="contactNumber"
                       Placeholder="Enter your contact number"
                       LabelName="Contact number"
@@ -202,7 +199,13 @@ export const RegisterAstrologer = ({ UpdateProfile = false, switchForm }) => {
                       Placeholder="Password"
                       LabelName="Password"
                       Type="password"
-                      // PasswordIndication={true}
+                      //   PasswordIndication={true}
+                    />
+                    <InputBox
+                      Name="dob"
+                      Placeholder="dd/mm/yyyy"
+                      LabelName="dob"
+                      Type="date"
                     />
                   </div>
                 ) : (

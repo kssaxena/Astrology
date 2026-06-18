@@ -5,6 +5,7 @@ const Button = ({
   Label = "",
   onClick,
   className = "",
+  icon,
   type,
   variant = "high",
   isLoading = false,
@@ -24,6 +25,7 @@ const Button = ({
         disabled:opacity-70 md:text-base text-xs tracking-wider
         disabled:cursor-not-allowed `}
     >
+      {icon}
       {isLoading ? (
         <>
           <AiOutlineLoading3Quarters className="animate-spin text-lg" />

@@ -1,20 +1,15 @@
-import { CiStar } from "react-icons/ci";
-import { GiSpellBook } from "react-icons/gi";
-import { FaHome, FaBalanceScale, FaHeart } from "react-icons/fa";
-import { IoPlanetOutline } from "react-icons/io5";
-import { FaRegMoon } from "react-icons/fa";
-import S1 from "../../assets/servicesImages/S1.png"
-import S2 from "../../assets/servicesImages/S2.png";
-import S3 from "../../assets/servicesImages/S3.png";
-import S4 from "../../assets/servicesImages/S4.png";
-import S5 from "../../assets/servicesImages/S5.png";
-import S6 from "../../assets/servicesImages/S6.png";
-import S7 from "../../assets/servicesImages/S7.png";
-import S8 from "../../assets/servicesImages/S8.png";
-import S9 from "../../assets/servicesImages/S9.png";
-import S10 from "../../assets/servicesImages/S10.png";
-import S11 from "../../assets/servicesImages/S11.png";
-import S12 from "../../assets/servicesImages/S12.png";
+import S1 from "../../../servicesImages/S1.png";
+import S2 from "../../../servicesImages/S2.png";
+import S3 from "../../../servicesImages/S3.png";
+import S4 from "../../../servicesImages/S4.png";
+import S5 from "../../../servicesImages/S5.png";
+import S6 from "../../../servicesImages/S6.png";
+import S7 from "../../../servicesImages/S7.png";
+import S8 from "../../../servicesImages/S8.png";
+import S9 from "../../../servicesImages/S9.png";
+import S10 from "../../../servicesImages/S10.png";
+import S11 from "../../../servicesImages/S11.png";
+import S12 from "../../../servicesImages/S12.png";
 
 export const ServiceData = [
   {

@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../assets/Logo.png";
-import Button from "../components/Button"
+import Button from "../components/Button";
 
 const Footer = () => {
   return (
@@ -36,7 +36,7 @@ const Footer = () => {
 
             <ul className="space-y-3 text-[#5C6A66]">
               <li>
-                <a href="#" className="hover:text-[#1E2A26]">
+                <a href="/" className="hover:text-[#1E2A26]">
                   Home
                 </a>
               </li>
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
 
           {/* Astrology Services */}
-          <div>
+          <div className="">
             <h3 className="text-lg font-semibold text-[#1E2A26] mb-4">
               Services
             </h3>
@@ -85,6 +85,19 @@ const Footer = () => {
                   Birth Analysis
                 </a>
               </li>
+              <li>
+                <a
+                  href="/authentication/astrologer"
+                  className="hover:text-[#1E2A26]"
+                >
+                  Astrologer (Login/Registration)
+                </a>
+              </li>
+              {/* <li>
+                <a href="#" className="hover:text-[#1E2A26]">
+                  Birth Analysis
+                </a>
+              </li> */}
             </ul>
           </div>
 
@@ -114,7 +127,7 @@ const Footer = () => {
                 "
               />
 
-              <Button Label="Subscribe" className="w-full"/>
+              <Button Label="Subscribe" className="w-full" />
             </div>
           </div>
         </div>

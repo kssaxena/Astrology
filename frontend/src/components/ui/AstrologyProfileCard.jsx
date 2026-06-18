@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import { CiStar } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
-import { AstroData } from "../constants/AstroData";
 
-const AstrologyCard = () => {
+const AstrologyCard = ({ data }) => {
   return (
     <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2  gap-3">
-      {AstroData.map((item) => (
+      {data.slice(21, data.length).map((item) => (
         <div
           className="md:w-96 w-full bg-[#FFFFFF] h-full border border-[#E7DCC8] rounded-3xl
            px-4  py-6 text-center shadow-md  hover:shadow-purple-500/4 flex flex-col gap-2

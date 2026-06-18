@@ -3,7 +3,7 @@ import InputBox from "./Input";
 import Button from "./Button";
 import { useState } from "react";
 
-const LoginAstrologer = ({ switchForm }) => {
+const LoginUser = ({ switchForm }) => {
   return (
     <div className=" h-full w-full lg:p-10  flex justify-center ">
       <div className="lg:flex justify-between rounded-xl gap-4 items-center w-full h-full  lg:p-10 bg-linear-to-b from-[#FFFDF9] to-[#FFF7E8]">
@@ -12,11 +12,11 @@ const LoginAstrologer = ({ switchForm }) => {
           {/* Heading */}
           <div className="">
             <h1 className="text-3xl font-bold text-[#1E2A26]">Welcome Back</h1>
-            <h2 className="text-4xl font-serif text-[#163A36] leading-tight coustard-h1">
+            <h2 className="text-4xl font-serif text-[#163A36] mt-2 leading-tight coustard-h1">
               Join Our Community of
             </h2>
 
-            <h2 className="text-3xl font-serif text-[#D97706] leading-tight mt-2 coustard-h1">
+            <h2 className=" mt-4 text-3xl font-serif text-[#D97706] leading-tight coustard-h1">
               Trusted Astrologers
             </h2>
 
@@ -84,8 +84,13 @@ const LoginAstrologer = ({ switchForm }) => {
           {/* Signup */}
           <p className="flex justify-end items-end gap-2  text-[#5C6A66] p-6">
             Don't have an account?{" "}
-            <button onClick={switchForm} className="capitalize hover:text-blue-600 hover:underline cursor-pointer ">register here</button>
-
+            <button
+              onClick={switchForm}
+              className="capitalize hover:text-blue-600 hover:underline cursor-pointer "
+            >
+              register here
+            </button>
+          
           </p>
         </div>
       </div>
@@ -93,4 +98,4 @@ const LoginAstrologer = ({ switchForm }) => {
   );
 };
 
-export default LoginAstrologer;
+export default LoginUser;
