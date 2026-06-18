@@ -1,5 +1,3 @@
-import S1 from "../../../servicesImages/S1.png";
-
 export const AstroData = [
   {
     id: 1,
@@ -10,7 +8,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "8 Years",
     price: 10,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 2,
@@ -21,7 +20,8 @@ export const AstroData = [
     language: "English",
     experience: "12 Years",
     price: 15,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 3,
@@ -32,7 +32,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "6 Years",
     price: 12,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 4,
@@ -43,7 +44,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "10 Years",
     price: 14,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 5,
@@ -54,7 +56,8 @@ export const AstroData = [
     language: "English",
     experience: "9 Years",
     price: 16,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 6,
@@ -65,7 +68,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "7 Years",
     price: 11,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 7,
@@ -76,7 +80,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "8 Years",
     price: 13,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 8,
@@ -87,7 +92,8 @@ export const AstroData = [
     language: "English",
     experience: "5 Years",
     price: 10,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 9,
@@ -98,7 +104,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "11 Years",
     price: 18,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 10,
@@ -109,7 +116,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "13 Years",
     price: 20,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 11,
@@ -120,7 +128,8 @@ export const AstroData = [
     language: "English",
     experience: "7 Years",
     price: 12,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 12,
@@ -131,7 +140,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "6 Years",
     price: 9,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 13,
@@ -142,7 +152,8 @@ export const AstroData = [
     language: "English, Malayalam",
     experience: "10 Years",
     price: 15,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 14,
@@ -153,7 +164,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "14 Years",
     price: 22,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 15,
@@ -164,7 +176,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "5 Years",
     price: 10,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 16,
@@ -175,7 +188,8 @@ export const AstroData = [
     language: "Gujarati, English",
     experience: "9 Years",
     price: 14,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 17,
@@ -186,7 +200,8 @@ export const AstroData = [
     language: "Punjabi, English",
     experience: "12 Years",
     price: 17,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 18,
@@ -197,7 +212,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "7 Years",
     price: 11,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 19,
@@ -208,7 +224,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "8 Years",
     price: 13,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 20,
@@ -219,7 +236,8 @@ export const AstroData = [
     language: "English",
     experience: "6 Years",
     price: 10,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 21,
@@ -230,7 +248,8 @@ export const AstroData = [
     language: "Hindi, Bengali",
     experience: "11 Years",
     price: 18,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 22,
@@ -241,7 +260,8 @@ export const AstroData = [
     language: "Marathi, English",
     experience: "13 Years",
     price: 20,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 23,
@@ -252,7 +272,8 @@ export const AstroData = [
     language: "English",
     experience: "6 Years",
     price: 12,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 24,
@@ -263,7 +284,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "8 Years",
     price: 13,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 25,
@@ -274,7 +296,8 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "10 Years",
     price: 15,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 26,
@@ -285,7 +308,8 @@ export const AstroData = [
     language: "Telugu, English",
     experience: "15 Years",
     price: 25,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 27,
@@ -296,7 +320,8 @@ export const AstroData = [
     language: "Hindi, Urdu",
     experience: "7 Years",
     price: 12,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 28,
@@ -307,7 +332,8 @@ export const AstroData = [
     language: "Hindi",
     experience: "5 Years",
     price: 9,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 29,
@@ -318,7 +344,8 @@ export const AstroData = [
     language: "English, Hindi",
     experience: "12 Years",
     price: 17,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
   {
     id: 30,
@@ -329,6 +356,7 @@ export const AstroData = [
     language: "Hindi, English",
     experience: "14 Years",
     price: 21,
-    image: S1,
+    image:
+      "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
   },
 ];
