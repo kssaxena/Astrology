@@ -3,6 +3,11 @@ import { sendSMS } from "../services/sms.service.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
+import {
+  sendOtpLoginSMS,
+  sendOtpRegisterSMS,
+  sendRegisterConfirmationSMS,
+} from "../workers/sms.workers.js";
 
 const registerAstrologer = asyncHandler(async (req, res) => {
   const { name, contactNumber, email, password } = req.body;
@@ -38,7 +43,7 @@ const registerAstrologer = asyncHandler(async (req, res) => {
   if (!passwordRegex.test(password))
     throw new ApiError(
       400,
-      "Password must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character",
+      "Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character",
     );
 
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -51,6 +56,8 @@ const registerAstrologer = asyncHandler(async (req, res) => {
     otp,
   });
 
+  await sendOtpRegisterSMS(contactNumber, otp);
+
   return res
     .status(201)
     .json(
@@ -62,7 +69,7 @@ const registerAstrologer = asyncHandler(async (req, res) => {
     );
 });
 
-const loginAstrologer = asyncHandler(async (req, res, next) => {
+const loginAstrologer = asyncHandler(async (req, res) => {
   const { contactNumber, password } = req.body;
   if (!contactNumber || !password)
     throw new ApiError(401, "Fields are missing");
@@ -73,7 +80,7 @@ const loginAstrologer = asyncHandler(async (req, res, next) => {
   // Check if the password is correct
   const isPasswordValid = await Astrologer.comparePassword(password);
   if (!isPasswordValid) {
-    return next(new ApiError(401, "Invalid password"));
+    return new ApiError(401, "Invalid password");
   }
 
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -85,12 +92,14 @@ const loginAstrologer = asyncHandler(async (req, res, next) => {
       "Unable to process the OTP, please try again later",
     );
 
+  await sendOtpLoginSMS(contactNumber, otp);
+
   return res
     .status(201)
     .json(new ApiResponse(201, astrologer, "Please enter the OTP"));
 });
 
-const otpAuthentication = asynchandler(async (req, res) => {
+const otpAuthentication = asyncHandler(async (req, res) => {
   const { contactNumber, otp } = req.body;
   if (!contactNumber) throw new ApiError(400, "Invalic credentials");
 
@@ -103,12 +112,92 @@ const otpAuthentication = asynchandler(async (req, res) => {
   const refreshToken = astrologer.generateRefreshToken();
   const tokens = { accessToken, refreshToken };
 
+  // verified otp
+
   return res
     .status(200)
     .json(
       new ApiResponse(201, { astrologer, tokens }, "Verified successfully !"),
     );
 });
+
+const welcomeMessage = asyncHandler(async (req, res) => {
+  const { contactNumber } = req.params;
+  if (!contactNumber) throw new ApiError(401, "Contact number is missing");
+
+  await sendRegisterConfirmationSMS(contactNumber);
+  return res
+    .status(201)
+    .json(new ApiResponse(201, {}, "Sms sent successfully !"));
+});
+
+const updateProfile = asyncHandler(async (req, res) => {
+  const { astrologerId } = req.params;
+  if (!astrologerId) throw new ApiError(401, "Invalid requested url parameter");
+
+  const {
+    languages,
+    experience,
+    specialization,
+    categories,
+    aadharNumber,
+    panNumber,
+    gst,
+  } = req.body;
+
+  const languageList = languages
+    ? languages.split(",").map((s) => s.trim())
+    : [];
+  const specializationList = specialization
+    ? specialization.split(",").map((s) => s.trim())
+    : [];
+  const categoryList = categories
+    ? categories.split(",").map((s) => s.trim())
+    : [];
+
+  const astrologer = await Astrologer.findByIdAndUpdate(astrologerId, {
+    languages: languageList,
+    experience: experience,
+    specialization: specializationList,
+    categories: categoryList,
+    governmentId: {
+      aadharNumber: aadharNumber,
+      panNumber: panNumber,
+      gst: gst,
+    },
+  });
+  if (!astrologer)
+    throw new ApiError(403, "Something went wrong, please try again later !");
+
+  return res
+    .status(201)
+    .json(new ApiResponse(201, astrologer, "Profile updated successfully!"));
+});
+
+const createChargesPlan = asyncHandler(async (req, res) => {
+  const { astrologerId } = req.params;
+  const { name, amount, minDuration } = req.body;
+  if (!name || !amount || !minDuration)
+    throw new ApiError(400, "All fields are required.");
+
+  const astrologer = await Astrologer.findById(astrologerId);
+  if (!astrologer) throw new ApiError(401, "Astrologer not found");
+
+  const fee = {
+    name,
+    amount,
+    minDuration,
+  };
+  astrologer.charges.push(fee);
+  await astrologer.save();
+
+  return res
+    .status(201)
+    .json(new ApiResponse(201, {}, "Fee structure added successfully !"));
+});
+
+// const addGalleryImage = asyncHandler(async(req,res)=>{
+// })
 
 const getAstrologerForFeed = asyncHandler(async (req, res) => {
   const { limit = 20 } = req.body;
@@ -225,11 +314,45 @@ const getAstrologerForFeed = asyncHandler(async (req, res) => {
   );
 });
 
+const deleteAstrologerById = asyncHandler(async (req, res) => {
+  const { astrologerId } = req.params;
+  if (!astrologerId) throw new ApiError(400, "Invalid request");
 
+  const astrologer = await Astrologer.findById(astrologerId);
+  if (!astrologer) throw new ApiError(401, "Astrologer not found");
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, {}, "Deletion request is successfull !"));
+});
+
+const deleteAstrologerByContactNumber = asyncHandler(async (req, res) => {
+  const { name, contactNumber, email, password } = req.body;
+  if (!name || !contactNumber || !email || !password)
+    throw new ApiError(401, "All details are required");
+
+  const astrologer = await Astrologer.findOneAndDelete({
+    $or: [{ contactNumber }, ...(email ? [{ email }] : [])],
+  });
+  if (!astrologer)
+    throw new ApiResponse(
+      200,
+      {},
+      "Please restart the process of registration",
+    );
+
+  return res
+    .status(200)
+    .json(201, {}, "Please restart the process of registration");
+});
 
 export {
   registerAstrologer,
   loginAstrologer,
   otpAuthentication,
+  welcomeMessage,
+  updateProfile,
   getAstrologerForFeed,
+  deleteAstrologerById,
+  deleteAstrologerByContactNumber,
 };
