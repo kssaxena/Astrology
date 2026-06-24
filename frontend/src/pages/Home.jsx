@@ -6,8 +6,11 @@ import ZodiacCard from "../components/ui/ZodiacCard";
 import ServiceCard from "../components/ui/Services";
 import AstrologyCard from "../components/ui/AstrologyProfileCard";
 import { AstroData } from "../components/constants/constants";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className=" flex flex-col gap-6 justify-around md:p-4  items-center  bg-linear-to-br from-[#fffefb] via-[#fff8eb] to-[#fff2d6] w-full ">
       {/* Hero section */}
@@ -55,8 +58,15 @@ function Home() {
       <div className="w-full">
         <ServiceCard />
       </div>
-      <div>
+      <div className="">
         <AstrologyCard data={AstroData} />
+        <div className="flex justify-center p-6">
+          <Button
+            Label="Explore more"
+            onClick={() => navigate("/astrologerfeed")}
+            className="flex justify-center p-6"
+          />
+        </div>
       </div>
     </div>
   );

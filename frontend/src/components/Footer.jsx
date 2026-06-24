@@ -71,7 +71,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#1E2A26]">
+                <a href="/tarot" className="hover:text-[#1E2A26]">
                   Tarot Reading
                 </a>
               </li>

@@ -2,59 +2,134 @@ import React, { useState } from "react";
 import Button from "../Button";
 import { CiStar } from "react-icons/ci";
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import AstrologyActionPopup from "../AstrologerActionPopup";
+
+
 
 const AstrologyCard = ({ data }) => {
+  const [openPopup, setOpenPopup] = useState(false);
+  const [selectedAstrologer, setSelectedAstrologer] = useState(null);
+ 
+  const handleOpenPopup = (astrologer) => {
+    setSelectedAstrologer(astrologer);
+    setOpenPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setOpenPopup(false);
+    setSelectedAstrologer(null);
+  };
+
   return (
-    <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2  gap-3">
-      {data.slice(21, data.length).map((item) => (
-        <div
-          className="md:w-96 w-full bg-[#FFFFFF] h-full border border-[#E7DCC8] rounded-3xl
-           px-4  py-6 text-center shadow-md  hover:shadow-purple-500/4 flex flex-col gap-2
-        "
-        >
-          {/* {Profile container} */}
-          <div className="flex justify-start gap-4 items-center  ">
-            {/* Image */}
-            <div className="img ">
+    <div>
+      <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-3 justify-center items-center">
+        {data?.map((item, index) => (
+          <div
+            key={item?.id || index}
+            className="
+              md:w-96
+              w-full
+              bg-[#FFFFFF]
+              border
+              border-[#E7DCC8]
+              rounded-3xl
+              px-4
+              py-6
+              shadow-md
+              hover:shadow-lg
+              transition-all
+              duration-300
+              flex
+              flex-col
+              gap-3
+            "
+          >
+            {/* Profile */}
+            <div className="flex items-center gap-4">
               <img
                 src={item?.image}
-                className="h-22 w-22 rounded-full text-xs bg-neutral-200 object-fit"
+                alt={item?.name}
+                className="
+                  h-20
+                  w-20
+                  rounded-full
+                  object-cover
+                  bg-neutral-200
+                "
               />
-            </div>
-            {/* Designation */}
-            <div className=" flex flex-col justify-center items-start">
-              <h1 className="font-bold text-xl">{item?.name}</h1>
-              <p className="text-secondary text-xs">{item?.designation}</p>
-              <div className="flex justify-center items-center gap-1 text-xs">
-                <CiStar size={24} color="yellow" />
-                <p>{item?.rating}</p>
-                <p>{item?.number}</p>
+
+              <div>
+                <h2 className="font-bold text-lg">{item?.name}</h2>
+
+                <p className="text-secondary text-sm">{item?.designation}</p>
+
+                <div className="flex items-center gap-1 mt-1">
+                  <CiStar className="text-yellow-500" size={18} />
+
+                  <span className="text-sm">{item?.rating}</span>
+
+                  <span className="text-xs text-gray-500">
+                    ({item?.number})
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* {Language & Experience} */}
-          <div className="w-full border py-2 bg-[#FFFDF9] border-[#E7DCC8] rounded-xl">
-            <div className=" flex justify-between text-xs px-2">
-              <p>Language</p>
-              <p>{item?.language || "Hindi, English"}</p>
-            </div>
-            <div className="flex justify-between text-xs px-2">
-              <p>Experience</p>
-              <p>{item?.experience || "10 year"}</p>
-            </div>
-          </div>
+            {/* Language & Experience */}
+            <div
+              className="
+                bg-[#FFFDF9]
+                border
+                border-[#E7DCC8]
+                rounded-xl
+                py-3
+                px-3
+              "
+            >
+              <div className="flex justify-between text-sm">
+                <span>Language</span>
+                <span>{item?.language || "Hindi, English"}</span>
+              </div>
 
-          {/* Button */}
-          <div className="flex justify-between items-center mt-2 px-2 py-1 rounded-xl shadow-2xl">
-            <h1 className="md:text-[22px] text-base font-semibold flex justify-center items-center ">
-              <LiaRupeeSignSolid />
-              200 <span className="text-base h-full text-end">/min</span>
-            </h1>
-            <Button Label="Chat Now" />
+              <div className="flex justify-between text-sm mt-2">
+                <span>Experience</span>
+                <span>{item?.experience || "10 Years"}</span>
+              </div>
+            </div>
+
+            {/* Price & Button */}
+            <div
+              className="
+                flex
+                items-center
+                justify-between
+                mt-2
+                rounded-xl
+                border
+                border-[#F5E8CF]
+                px-3
+                py-3
+              "
+            >
+              <h3 className="text-xl font-bold flex items-center">
+                <LiaRupeeSignSolid />
+                {item?.price || 200}
+                <span className="text-sm font-normal ml-1">/min</span>
+              </h3>
+
+              <Button Label="Chat Now" onClick={() => handleOpenPopup(item)} />
+            </div>
+            {/* Popup */}
+            <AstrologyActionPopup
+              isOpen={openPopup}
+              onClose={handleClosePopup}
+              astrologer={selectedAstrologer}
+            />
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+     
     </div>
   );
 };

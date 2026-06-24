@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const LoginUser = ({ switchForm }) => {
   return (
-    <div className=" h-full w-full lg:p-10  flex justify-center ">
+    <div className=" h-full w-full lg:p-10 p-4  flex justify-center ">
       <div className="lg:flex justify-between rounded-xl gap-4 items-center w-full h-full  lg:p-10 bg-linear-to-b from-[#FFFDF9] to-[#FFF7E8]">
         {/* Left panel*/}
         <div className=" lg:flex w-1/2 p-4 flex-col justify-between hidden relative overflow-hidden">

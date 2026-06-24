@@ -12,6 +12,20 @@ import {
   TbZodiacAquarius,
   TbZodiacPisces,
 } from "react-icons/tb";
+import {
+  FaSearch,
+  FaBorderAll,
+  FaHeart,
+  FaBook,
+  FaSuitcase,
+  FaWallet,
+  FaFilter,
+  FaBaby,
+} from "react-icons/fa";
+import { GiLinkedRings } from "react-icons/gi";
+import { FaSuitcaseMedical } from "react-icons/fa6";
+import { GoLaw } from "react-icons/go";
+import { MdFamilyRestroom } from "react-icons/md";
 
 export const zodiacData = [
   {
@@ -86,4 +100,17 @@ export const zodiacData = [
     date: "Feb 19 - Mar 20",
     iconColor: "text-green-400",
   },
+];
+
+export const Category = [
+  { name: "All", icon: <FaBorderAll />, iconColor: "text-purple-800" },
+  { name: "Love", icon: <FaHeart />, iconColor: "text-red-700" },
+  { name: "Career", icon: <FaSuitcase />, iconColor: "text-blue-900" },
+  { name: "Marriage", icon: <GiLinkedRings />, iconColor: "text-pink-600" },
+  { name: "Education", icon: <FaBook />, iconColor: "text-blue-500" },
+  { name: "Wealth", icon: <FaWallet />, iconColor: "text-red-900" },
+  { name: "Health", icon: <FaSuitcaseMedical />, iconColor: "text-gray-800" },
+  { name: "Legal", icon: <GoLaw />, iconColor: "text-black" },
+  { name: "Family", icon: <MdFamilyRestroom />, iconColor: "text-blue-800" },
+  { name: "Children", icon: <FaBaby />, iconColor: "text-red-400" },
 ];

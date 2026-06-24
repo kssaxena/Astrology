@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const LoginAstrologer = ({ switchForm }) => {
   return (
-    <div className=" h-full w-full lg:p-10  flex justify-center ">
+    <div className=" h-full w-full lg:p-10 p-4 flex justify-center ">
       <div className="lg:flex justify-between rounded-xl gap-4 items-center w-full h-full  lg:p-10 bg-linear-to-b from-[#FFFDF9] to-[#FFF7E8]">
         {/* Left panel*/}
         <div className=" lg:flex w-1/2 p-4 flex-col justify-between hidden relative overflow-hidden">
@@ -82,7 +82,7 @@ const LoginAstrologer = ({ switchForm }) => {
           /> */}
 
           {/* Signup */}
-          <p className="flex justify-end items-end gap-2  text-[#5C6A66] p-6">
+          <p className="flex justify-end items-end gap-2   text-[#5C6A66] p-6">
             Don't have an account?{" "}
             <button onClick={switchForm} className="capitalize hover:text-blue-600 hover:underline cursor-pointer ">register here</button>
 

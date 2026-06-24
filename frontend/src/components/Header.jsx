@@ -4,35 +4,63 @@ import Logo from "../assets/Logo.png";
 import GoogleTranslate from "./GoogleTranslate";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({switchForm}) => {
+const Header = ({ switchForm }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const navigate = useNavigate();
 
   const navItems = [
-    { name: "Home",
-      path: "/"
-     },
+    { name: "Home", path: "/" },
     {
       name: "Horoscope",
-      submenu: ["Daily", "Weekly", "Monthly", "Yearly"],
+      submenu: [
+        {
+          name: "Daily",
+          path: "/",
+        },
+        {
+          name: "Weekly",
+          path: "/",
+        },
+        {
+          name: "Monthly",
+          path: "/",
+        },
+        {
+          name: "Yearly",
+          path: "/",
+        },
+      ],
     },
-    // { name: "Birth Chart" },
-    // { name: "Compatibility" },
+   
     {
       name: "Free services",
-      submenu: ["Love Tarot", "Career Tarot", "Daily Tarot"],
+      submenu: [
+        {
+          name: "Tarot",
+          path: "/tarot",
+        },
+        {
+          name: "Free Services",
+          path: "/",
+        },
+      ],
     },
     {
-      name: "Panchanga",
-      submenu: ["Astrology", "Spirituality", "Zodiac Signs"],
+      name: "Panchang",
+      submenu: [
+        {
+          name: "Today Panchang",
+          path: "/",
+        },
+      ],
     },
     { name: "Contact" },
   ];
 
   return (
     <header className="bg-[#FFFDF9] border-b rounded-lg border-[#EAE6DD] shadow-lg top-0 z-40 backdrop-blur-md fixed w-full h-18.75 flex justify-center items-center">
-      <div className=" mx-auto px-4 lg:px-8 sm:px-4 sm:text-lg w-full">
+      <div className=" mx-auto px-4 lg:px-8 sm:px-4 sm:text-lg w-full h-full ">
         <div className="flex items-center justify-between h-18 w-full">
           {/* Logo */}
           <div className="lg:flex items-center gap-1 cursor-pointer">
@@ -74,7 +102,7 @@ const Header = ({switchForm}) => {
                       top-full
                       left-0
                       absolute
-                        mt-2
+                     
                         w-56
                         bg-[#FFFDF9]
                         rounded-2xl
@@ -90,7 +118,7 @@ const Header = ({switchForm}) => {
                       {item.submenu.map((subItem) => (
                         <a
                           key={subItem}
-                          href={item.path}
+                          href={subItem.path}
                           className="
                               block
                               px-5
@@ -102,7 +130,7 @@ const Header = ({switchForm}) => {
                               cursor-pointer
                             "
                         >
-                          {subItem}
+                          {subItem.name}
                         </a>
                       ))}
                     </div>
@@ -133,11 +161,11 @@ const Header = ({switchForm}) => {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            mobileMenu ? "max-h-screen py-4" : "max-h-0"
+          className={`lg:hidden bg-white overflow-hidden transition-all duration-300 ${
+            mobileMenu ? " h-screen" : "max-h-0"
           }`}
         >
-          <ul className="space-y-4 border-t border-[#EAE6DD] pt-4">
+          <ul className="space-y-4 border-t border-[#EAE6DD] p-4">
             {navItems.map((item) => (
               <li key={item.name}>
                 <a
@@ -151,8 +179,11 @@ const Header = ({switchForm}) => {
                   <ul className="ml-4 mt-2 space-y-2">
                     {item.submenu.map((subItem) => (
                       <li key={subItem}>
-                        <a href={item.path} className="text-sm text-[#8B948F]">
-                          {subItem}
+                        <a
+                          href={subItem.path}
+                          className="text-sm text-[#8B948F]"
+                        >
+                          {subItem.name}
                         </a>
                       </li>
                     ))}
@@ -161,7 +192,15 @@ const Header = ({switchForm}) => {
               </li>
             ))}
           </ul>
+          <div className="px-2">
+            <Button
+              Label="Login/Register"
+              className=""
+              onClick={() => navigate("authentication/user")}
+            />
+          </div>
         </div>
+        
       </div>
     </header>
   );

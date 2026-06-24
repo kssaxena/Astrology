@@ -10,6 +10,7 @@ export const AstroData = [
     price: 10,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const AstroData = [
     price: 15,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 1,
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const AstroData = [
     price: 12,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 2,
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ export const AstroData = [
     price: 14,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ export const AstroData = [
     price: 16,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 6,
@@ -70,6 +75,7 @@ export const AstroData = [
     price: 11,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 7,
@@ -82,6 +88,7 @@ export const AstroData = [
     price: 13,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 8,
@@ -94,6 +101,7 @@ export const AstroData = [
     price: 10,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 9,
@@ -106,6 +114,7 @@ export const AstroData = [
     price: 18,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 10,
@@ -118,7 +127,9 @@ export const AstroData = [
     price: 20,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
+
   {
     id: 11,
     name: "Pooja Khanna",
@@ -130,6 +141,7 @@ export const AstroData = [
     price: 12,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+    subscriptionType: 3,
   },
   {
     id: 12,
@@ -358,5 +370,55 @@ export const AstroData = [
     price: 21,
     image:
       "https://ik.imagekit.io/ilvdampsx/servicesImages/S12.png?updatedAt=1781784837299",
+  },
+];
+
+export const filterBtnData = [
+  {
+    name: "Quick Category",
+    subitem: ["All", "Love", "Career", "Marriage", "Education", "Wealth", "Health","Legal", "Family", "Children"]
+  },
+  {
+    name: "Price",
+    subitem: ["high-low", "low-high"]
+  },
+  {
+    name: "Call ",
+  },
+  {
+    name: "Chat",
+  },
+  {
+    name: "Video call",
+  },
+  {
+    name: "Chat & Call",
+  },
+  {
+    name: "Chat & Video call",
+  },
+  {
+    name: "Call & Video call",
+  },
+];
+
+export const SortedBtnData = [
+  {
+    name: "What's new",
+  },
+  {
+    name: "Price- high to low",
+  },
+  {
+    name: "price- low to high",
+  },
+  {
+    name: "Popularity",
+  },
+  {
+    name: "Discount",
+  },
+  {
+    name: "Most rated",
   },
 ];
